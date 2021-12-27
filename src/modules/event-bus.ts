@@ -75,4 +75,9 @@ export class EventBus {
     this.#events.clear();
     this.#preEmitQueue.clear();
   }
+
+  removeEvent(event: string): void {
+    this.#events.delete(event);
+    this.#preEmitQueue.delete(event);
+  }
 }

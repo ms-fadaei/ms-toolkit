@@ -99,4 +99,68 @@ describe('Helpers', () => {
 
     expect(callback.calledOnce).to.be.equal(true);
   });
+
+  it('clear event-bus', async () => {
+    const eventBus = new EventBus();
+
+    // add event1
+    const callback1 = fake();
+    eventBus.on('event1', callback1);
+
+    // add event1
+    const callback2 = fake();
+    eventBus.on('event2', callback2);
+
+    eventBus.clear();
+
+    // emit event
+    eventBus.emit('event1');
+    eventBus.emit('event2');
+
+    expect(callback1.calledOnce).to.be.equal(false);
+    expect(callback2.calledOnce).to.be.equal(false);
+  });
+
+  it('remove specific event', async () => {
+    const eventBus = new EventBus();
+
+    // add event1
+    const callback1 = fake();
+    eventBus.on('event1', callback1);
+
+    // add event1
+    const callback2 = fake();
+    eventBus.on('event2', callback2);
+
+    eventBus.removeEvent('event1');
+
+    // emit event
+    eventBus.emit('event1');
+    eventBus.emit('event2');
+
+    expect(callback1.calledOnce).to.be.equal(false);
+    expect(callback2.calledOnce).to.be.equal(true);
+  });
+
+  it('clear preEmitQueue for specific event', async () => {
+    const eventBus = new EventBus();
+
+    // emit event
+    eventBus.emit('event1');
+    eventBus.emit('event2');
+
+    // remove first event
+    eventBus.removeEvent('event1');
+
+    // add event1
+    const callback1 = fake();
+    eventBus.on('event1', callback1);
+
+    // add event1
+    const callback2 = fake();
+    eventBus.on('event2', callback2);
+
+    expect(callback1.calledOnce).to.be.equal(false);
+    expect(callback2.calledOnce).to.be.equal(true);
+  });
 });
