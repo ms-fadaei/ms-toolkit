@@ -1,5 +1,5 @@
 export function toEnglishDigits(text: string | number): string {
-  text = String(text);
+  text = text.toString();
 
   // Persian To English
   text = text.replace(/[۰-۹]/g, function (c) {
@@ -15,7 +15,7 @@ export function toEnglishDigits(text: string | number): string {
 }
 
 export function toPersianDigits(text: string | number): string {
-  text = String(text);
+  text = text.toString();
 
   // English to Persian
   text = text.replace(/[0-9]/g, function (c) {
