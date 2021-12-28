@@ -29,3 +29,7 @@ export function toPersianDigits(text: string | number): string {
 
   return text;
 }
+
+export function thousandSeparator(text: string | number, separator = ','): string {
+  return text.toString().replace(/\B(?=(\d{3})+(?!\d))/g, separator);
+}
