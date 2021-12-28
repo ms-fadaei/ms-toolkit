@@ -3,7 +3,7 @@ import { fake } from 'sinon';
 import { EventBus } from '../dist/index.mjs';
 
 describe('Helpers', () => {
-  it('emit one event', async () => {
+  it('emit one event', () => {
     const eventBus = new EventBus();
 
     // add event
@@ -16,7 +16,7 @@ describe('Helpers', () => {
     expect(callback.calledOnce).to.be.equal(true);
   });
 
-  it('emit no event', async () => {
+  it('emit no event', () => {
     const eventBus = new EventBus();
 
     // add event
@@ -26,7 +26,7 @@ describe('Helpers', () => {
     expect(callback.calledOnce).to.be.equal(false);
   });
 
-  it('emit multiple events', async () => {
+  it('emit multiple events', () => {
     const eventBus = new EventBus();
 
     // add event1
@@ -50,7 +50,7 @@ describe('Helpers', () => {
     expect(callback3.calledOnce).to.be.equal(false);
   });
 
-  it('emit one event with multiple handlers', async () => {
+  it('emit one event with multiple handlers', () => {
     const eventBus = new EventBus();
 
     // add event1
@@ -68,7 +68,7 @@ describe('Helpers', () => {
     expect(callback2.calledOnce).to.be.equal(true);
   });
 
-  it('emitted event before add called after adding', async () => {
+  it('emitted event before add called after adding', () => {
     const eventBus = new EventBus();
 
     // emit event
@@ -86,7 +86,7 @@ describe('Helpers', () => {
     expect(callback2.calledOnce).to.be.equal(false);
   });
 
-  it('use once for one-time event', async () => {
+  it('use once for one-time event', () => {
     const eventBus = new EventBus();
 
     // add event1
@@ -100,7 +100,7 @@ describe('Helpers', () => {
     expect(callback.calledOnce).to.be.equal(true);
   });
 
-  it('clear event-bus', async () => {
+  it('clear event-bus', () => {
     const eventBus = new EventBus();
 
     // add event1
@@ -121,7 +121,7 @@ describe('Helpers', () => {
     expect(callback2.calledOnce).to.be.equal(false);
   });
 
-  it('remove specific event', async () => {
+  it('remove specific event', () => {
     const eventBus = new EventBus();
 
     // add event1
@@ -142,7 +142,7 @@ describe('Helpers', () => {
     expect(callback2.calledOnce).to.be.equal(true);
   });
 
-  it('clear preEmitQueue for specific event', async () => {
+  it('clear preEmitQueue for specific event', () => {
     const eventBus = new EventBus();
 
     // emit event
