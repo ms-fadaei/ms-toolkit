@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2](https://github.com/ms-fadaei/ms-toolkit/compare/v0.0.1...v0.0.2) (2021-12-30)
+
+
+### Features
+
+* add `createScript` function ([b98aa54](https://github.com/ms-fadaei/ms-toolkit/commit/b98aa54c6f46ccd8832b5477257d4b0611cc8a53))
+
+
+### Bug Fixes
+
+* move `sinon` to devDependencies ([bc56cbe](https://github.com/ms-fadaei/ms-toolkit/commit/bc56cbe9da5248d5a9d720dd51b4a4efb66b46e3))
+
 ### 0.0.1 (2021-12-29)
 
 
