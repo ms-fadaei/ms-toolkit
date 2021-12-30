@@ -50,7 +50,9 @@ describe('Helpers', () => {
     expect(thousandSeparator('1234')).to.be.equal('1,234');
     expect(thousandSeparator('123456')).to.be.equal('123,456');
     expect(thousandSeparator('1234567890')).to.be.equal('1,234,567,890');
-    expect(thousandSeparator('this a text with 1 and 12345')).to.be.equal('this a text with 1 and 12,345');
+    expect(thousandSeparator('this a text with 1 and 12345')).to.be.equal(
+      'this a text with 1 and 12,345',
+    );
   });
 
   it('separate thousands with slash in a text', () => {
@@ -59,6 +61,8 @@ describe('Helpers', () => {
     expect(thousandSeparator('1234', '/')).to.be.equal('1/234');
     expect(thousandSeparator('123456', '/')).to.be.equal('123/456');
     expect(thousandSeparator('1234567890', '/')).to.be.equal('1/234/567/890');
-    expect(thousandSeparator('this a text with 1 and 12345', '/')).to.be.equal('this a text with 1 and 12/345');
+    expect(thousandSeparator('this a text with 1 and 12345', '/')).to.be.equal(
+      'this a text with 1 and 12/345',
+    );
   });
 });

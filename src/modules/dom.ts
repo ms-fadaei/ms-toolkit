@@ -15,7 +15,11 @@ export interface HTMLScriptOptions {
   onAbort?: EventListenerOrEventListenerObject;
 }
 
-export function createScript(src: string, force = false, attrs?: HTMLScriptOptions): Promise<HTMLScriptElement> {
+export function createScript(
+  src: string,
+  force = false,
+  attrs?: HTMLScriptOptions,
+): Promise<HTMLScriptElement> {
   return new Promise((resolve, reject) => {
     const existingScript = document.querySelector(`script[src="${src}"]`) as HTMLScriptElement;
 
