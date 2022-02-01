@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/ms-fadaei/ms-toolkit/compare/v0.0.2...v0.0.3) (2022-02-01)
+
+
+### Features
+
+* add `getElementPosition` helper function ([cf9a2b1](https://github.com/ms-fadaei/ms-toolkit/commit/cf9a2b14e91fba20296704dba7c5a47638b8dcc7))
+* add `imageToBase64` ([2d172fd](https://github.com/ms-fadaei/ms-toolkit/commit/2d172fdc2cf66f1e857d6af00ecd66afcf158d9a))
+* add `scrollWindowToSection` helper function ([d81e1f8](https://github.com/ms-fadaei/ms-toolkit/commit/d81e1f8e9394361ea51564aff2fada46d09e4a26))
+* add getScrollableParent helper function ([5e75b46](https://github.com/ms-fadaei/ms-toolkit/commit/5e75b464b7caf7d0d1024cfd1d3615497832d23a))
+
 ### [0.0.2](https://github.com/ms-fadaei/ms-toolkit/compare/v0.0.1...v0.0.2) (2021-12-30)
 
 
