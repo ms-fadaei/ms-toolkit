@@ -164,11 +164,9 @@ export function scrollWindowToSection(
     window.scrollTo(0, offsetTop);
   }
 }
-
-type elementPosition = 'start' | 'center' | 'end';
 interface scrollToElementOptions {
-  left?: elementPosition;
-  top?: elementPosition;
+  left?: 'start' | 'center' | 'end';
+  top?: 'start' | 'center' | 'end';
   marginX?: number;
   marginY?: number;
 }
