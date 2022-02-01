@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/ms-fadaei/ms-toolkit/compare/v0.0.3...v0.0.4) (2022-02-01)
+
+
+### Features
+
+* add `scrollToElement` function ([0cec6af](https://github.com/ms-fadaei/ms-toolkit/commit/0cec6afb2d0fd7288d5e423c0c1639c69e00d8bd))
+
 ### [0.0.3](https://github.com/ms-fadaei/ms-toolkit/compare/v0.0.2...v0.0.3) (2022-02-01)
 
 
