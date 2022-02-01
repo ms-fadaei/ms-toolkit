@@ -1,3 +1,6 @@
+export const supportsNativeSmoothScroll =
+  typeof window !== 'undefined' && 'scrollBehavior' in document.documentElement.style;
+
 export interface HTMLScriptOptions {
   async?: boolean;
   crossorigin?: string;
@@ -135,12 +138,11 @@ export function getElementPosition(el: HTMLElement) {
 
 export function scrollWindowToSection(
   el?: HTMLElement | string,
-  options?: { marginTop: number },
+  options?: { marginTop?: number },
 ): void {
   // eslint-disable-next-line prettier/prettier
   const element = (typeof el === 'string' ? document.querySelector(el) : el) || window.document.body;
   const { marginTop = 0 } = options || {};
-  const supportsNativeSmoothScroll = 'scrollBehavior' in document.documentElement.style;
 
   let offsetTop = getElementPosition(element as HTMLElement).scrollY - marginTop;
   offsetTop = offsetTop < 0 ? 0 : offsetTop;
@@ -160,5 +162,57 @@ export function scrollWindowToSection(
     }
   } else {
     window.scrollTo(0, offsetTop);
+  }
+}
+
+type elementPosition = 'start' | 'center' | 'end';
+interface scrollToElementOptions {
+  left?: elementPosition;
+  top?: elementPosition;
+  marginX?: number;
+  marginY?: number;
+}
+
+export function scrollToElement(
+  el: HTMLElement,
+  parentEl: HTMLElement,
+  options?: scrollToElementOptions,
+): void {
+  const { left = 'center', top = 'center', marginX = 0, marginY = 0 } = options || {};
+
+  let offsetLeft = 0;
+  if (left === 'start') {
+    offsetLeft = el.offsetLeft + el.clientWidth - parentEl.clientWidth + marginX;
+  } else if (left === 'end') {
+    offsetLeft = el.offsetLeft - marginX;
+  } else {
+    offsetLeft = el.offsetLeft + el.clientWidth / 2 - parentEl.clientWidth / 2;
+  }
+
+  let offsetTop = 0;
+  if (top === 'start') {
+    offsetTop = el.offsetTop - marginY;
+  } else if (top === 'end') {
+    offsetTop = el.offsetTop + el.clientHeight - parentEl.clientHeight + marginY;
+  } else {
+    offsetTop = el.offsetTop + el.clientHeight / 2 - parentEl.clientHeight / 2;
+  }
+
+  if (supportsNativeSmoothScroll) {
+    if ('scrollIntoView' in el) {
+      el.scrollIntoView({
+        block: top,
+        inline: left,
+        behavior: 'smooth',
+      });
+    } else {
+      parentEl.scrollTo({
+        top: offsetTop,
+        left: offsetLeft,
+        behavior: 'smooth',
+      });
+    }
+  } else {
+    parentEl.scrollTo(offsetLeft, offsetTop);
   }
 }
