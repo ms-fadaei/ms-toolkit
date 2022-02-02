@@ -1,3 +1,11 @@
+/**
+ *
+ * Convert English and Arabic digits to Persian digits
+ *
+ * @method toEnglishDigits
+ * @param {string|number} text entry text, ex: 123456
+ * @returns {string} formatted text, ex: ۱۲۳۴۵۶
+ */
 export default function toPersianDigits(text: string | number): string {
   text = text.toString();
 
