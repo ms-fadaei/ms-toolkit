@@ -3,7 +3,7 @@ type FunctionType = (...args: unknown[]) => void;
 export default function createDebounce(
   cb: FunctionType,
   delay: number,
-  immediate: boolean,
+  immediate = false,
 ): FunctionType {
   let timer: ReturnType<typeof setTimeout> | null = null;
 
