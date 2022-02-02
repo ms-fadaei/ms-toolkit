@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/ms-fadaei/ms-toolkit/compare/v0.0.5...v0.0.6) (2022-02-02)
+
+
+### Features
+
+* add `createDebounce` and `createThrottle` to the lib ([26ba3af](https://github.com/ms-fadaei/ms-toolkit/commit/26ba3afd26726b823a5630be6b925ec5e69bb750))
+
 ### [0.0.5](https://github.com/ms-fadaei/ms-toolkit/compare/v0.0.4...v0.0.5) (2022-02-02)
 
 
