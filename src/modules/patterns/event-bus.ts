@@ -1,6 +1,6 @@
 export type EventBusEvent = (...args: unknown[]) => void;
 
-export class EventBus {
+export default class EventBus {
   #events: Map<string, EventBusEvent[]>;
   #preEmitQueue: Map<string, unknown[][]>;
 

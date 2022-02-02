@@ -1,3 +1,3 @@
-export * from './modules/event-bus';
-export * from './modules/digits';
+export * from './modules/patterns';
+export * from './modules/text';
 export * from './modules/dom';
