@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/ms-fadaei/ms-toolkit/compare/v0.0.7...v0.0.8) (2022-02-02)
+
+
+### Bug Fixes
+
+* optional `immediate` parameter in `createDebounce` ([1f89dbd](https://github.com/ms-fadaei/ms-toolkit/commit/1f89dbd1f1ea5a2bff04f84defdf14b286617434))
+
 ### [0.0.7](https://github.com/ms-fadaei/ms-toolkit/compare/v0.0.6...v0.0.7) (2022-02-02)
 
 
