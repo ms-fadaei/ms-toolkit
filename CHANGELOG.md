@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/ms-fadaei/ms-toolkit/compare/v0.0.6...v0.0.7) (2022-02-02)
+
+
+### Bug Fixes
+
+* fix on binding `this` ([cbf3ae6](https://github.com/ms-fadaei/ms-toolkit/commit/cbf3ae615756f79536c73d46c226580ee179ddd6))
+
 ### [0.0.6](https://github.com/ms-fadaei/ms-toolkit/compare/v0.0.5...v0.0.6) (2022-02-02)
 
 
