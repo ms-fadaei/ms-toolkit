@@ -1,15 +1,14 @@
 type FunctionType = (...args: unknown[]) => void;
 
 export default function createDebounce(
-  this: unknown,
-  fn: FunctionType,
+  cb: FunctionType,
   delay: number,
   immediate: boolean,
 ): FunctionType {
   let timer: ReturnType<typeof setTimeout> | null = null;
 
-  return (...args: unknown[]): void => {
-    const boundedCb = fn.bind(this, ...args);
+  return function (this: unknown, ...args: unknown[]): void {
+    const boundedCb = cb.bind(this, ...args);
 
     const doAfterTimeout = (): void => {
       if (!immediate) boundedCb();

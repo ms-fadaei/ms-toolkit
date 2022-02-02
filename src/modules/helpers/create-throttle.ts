@@ -1,7 +1,6 @@
 type FunctionType = (...args: unknown[]) => void;
 
 export default function createThrottle(
-  this: unknown,
   cb: FunctionType,
   delay = -1,
   leading = false,
@@ -9,7 +8,7 @@ export default function createThrottle(
   // throttle flag to prevent run
   let isThrottling = false;
 
-  return (...args: unknown[]): void => {
+  return function (this: unknown, ...args: unknown[]): void {
     if (!isThrottling) {
       const boundedCb = cb.bind(this, ...args);
 
