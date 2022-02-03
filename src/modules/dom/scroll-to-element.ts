@@ -12,6 +12,11 @@ export default function scrollToElement(
   parentEl: HTMLElement,
   options?: scrollToElementOptions,
 ): void {
+  if (!('scrollTo' in parentEl)) {
+    console.error('scrollTo is not supported');
+    return;
+  }
+
   const { x = 'center', y = 'center', marginX = 0, marginY = 0 } = options || {};
 
   let offsetLeft = 0;
