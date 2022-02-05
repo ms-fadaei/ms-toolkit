@@ -1,5 +1,12 @@
 type FunctionType = (...args: unknown[]) => void;
 
+/**
+ * Create debouncing function
+ * @param cb callback function that you want to debounce
+ * @param delay debounce delay in milliseconds
+ * @param immediate if true, the callback will be called immediately
+ * @returns debounced function
+ */
 export default function createDebounce(
   cb: FunctionType,
   delay: number,
