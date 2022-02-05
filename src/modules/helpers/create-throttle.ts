@@ -1,5 +1,12 @@
 type FunctionType = (...args: unknown[]) => void;
 
+/**
+ * Create throttling function
+ * @param cb callback function that you want to throttle
+ * @param delay throttle delay in milliseconds
+ * @param leading if true, the callback will be called on the leading edge of the timeout
+ * @returns throttled function
+ */
 export default function createThrottle(
   cb: FunctionType,
   delay = -1,
