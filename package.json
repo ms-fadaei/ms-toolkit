@@ -63,5 +63,8 @@
     "standard-version": "latest",
     "typescript": "latest",
     "unbuild": "latest"
+  },
+  "peerDependencies": {
+    "redis": "^4.0.3"
   }
 }
