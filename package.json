@@ -38,7 +38,9 @@
     "*.ts": "eslint --fix",
     "*.test.mjs": "eslint --fix"
   },
-  "dependencies": {},
+  "dependencies": {
+    "redis": "^4.0.3"
+  },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "8.0.0",
     "@types/flat": "latest",
