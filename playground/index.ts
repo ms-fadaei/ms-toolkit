@@ -1,1 +1,1 @@
-// playground\index.ts
+import './redis';

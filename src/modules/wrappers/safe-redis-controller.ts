@@ -7,7 +7,7 @@ const defaultOptions = {
   socket: {
     reconnectStrategy: (retries: number) => {
       if (retries <= 25) {
-        return Math.min(retries * 50, 10000);
+        return Math.min(retries * 50, 10_000);
       }
 
       return new Error('Redis connection failed');
@@ -20,6 +20,7 @@ class SafeRedisController {
   public isConnected;
   public error: Error | undefined;
   private _onErrorCb: _onErrorCb | undefined;
+  private _promiseList: Map<string, Promise<SupportedValues>>;
 
   constructor(options: RedisClientOptions = {}) {
     options = Object.assign({}, defaultOptions, options);
@@ -29,6 +30,7 @@ class SafeRedisController {
     this.isConnected = false;
     this.error = undefined;
     this._onErrorCb = undefined;
+    this._promiseList = new Map();
 
     // error handler
     this.client.on('error', (err: Error) => {
@@ -56,8 +58,27 @@ class SafeRedisController {
       });
   }
 
-  public set(key: string, value: SupportedValues, option = {}): Promise<void> {
+  // eslint-disable-next-line prettier/prettier
+  public set(key: string, value: SupportedValues | Promise<SupportedValues>, option = {}): Promise<void> {
     if (!this.isConnected) return Promise.resolve();
+
+    if (this._isPromise(value)) {
+      if (!this._promiseList.has(key)) {
+        const transformedPromise = value
+          .then((res) => {
+            if (this._promiseList.has(key)) {
+              this._promiseList.delete(key);
+              return this.set(key, res);
+            }
+          })
+          .catch(() => undefined);
+
+        this._promiseList.set(key, value);
+        return transformedPromise;
+      }
+
+      return Promise.resolve();
+    }
 
     return this.client
       .set(key, this._convertToString(value), option)
@@ -68,6 +89,10 @@ class SafeRedisController {
   public get(key: string): Promise<SupportedValues | void> {
     if (!this.isConnected) return Promise.resolve();
 
+    if (this._promiseList.has(key)) {
+      return this._promiseList.get(key) as Promise<SupportedValues>;
+    }
+
     return this.client
       .get(key)
       .then((res) => (res ? this._convertFromString(res) : undefined))
@@ -77,6 +102,11 @@ class SafeRedisController {
   public del(key: string): Promise<boolean> {
     if (!this.isConnected) return Promise.resolve(false);
 
+    if (this._promiseList.has(key)) {
+      this._promiseList.delete(key);
+      return Promise.resolve(true);
+    }
+
     return this.client
       .del(key)
       .then(() => true)
@@ -85,6 +115,10 @@ class SafeRedisController {
 
   public has(key: string): Promise<boolean> {
     if (!this.isConnected) return Promise.resolve(false);
+
+    if (this._promiseList.has(key)) {
+      return Promise.resolve(true);
+    }
 
     return this.client
       .exists(key)
@@ -105,6 +139,10 @@ class SafeRedisController {
     this.error = err;
 
     this._onErrorCb?.(err);
+  }
+
+  private _isPromise(value: unknown): value is Promise<SupportedValues> {
+    return typeof value === 'object' && value instanceof Promise;
   }
 
   private _convertToString(value: SupportedValues) {
