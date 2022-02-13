@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.10](https://github.com/ms-fadaei/ms-toolkit/compare/v0.0.9...v0.0.10) (2022-02-13)
+
+
+### Features
+
+* `safe-redis-controller` now support promises ([5b411c2](https://github.com/ms-fadaei/ms-toolkit/commit/5b411c2e924bdc14c60dd1122b21519f8d41b641))
+* add `SafeRedisController` wrapper module ([cfb987b](https://github.com/ms-fadaei/ms-toolkit/commit/cfb987bc4f8b3b37abaaae133facb0af07161ba7))
+
+
+### Bug Fixes
+
+* add support check for `scrollByAmount` ([9ef86fc](https://github.com/ms-fadaei/ms-toolkit/commit/9ef86fc7e39a9bdad6dd524322e2ebd1f00d7989))
+* add support check for `scrollToElement` ([55a59aa](https://github.com/ms-fadaei/ms-toolkit/commit/55a59aa30abe73d6b9237d9c6e60d4ae29f31fc3))
+* fix on null values ([c6455a6](https://github.com/ms-fadaei/ms-toolkit/commit/c6455a6465627f8ea2b4e896fcad4def7cb29e97))
+* remove `RedisSafeController` ([fb0de5a](https://github.com/ms-fadaei/ms-toolkit/commit/fb0de5a585940384320a1e8a454490f6165e1af5))
+
 ### [0.0.9](https://github.com/ms-fadaei/ms-toolkit/compare/v0.0.8...v0.0.9) (2022-02-03)
 
 
