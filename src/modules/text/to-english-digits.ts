@@ -4,6 +4,8 @@
  * @returns formatted text, ex: 123456
  */
 export default function toEnglishDigits(text: string | number): string {
+  if (!text) return '';
+
   text = text.toString();
 
   // Persian To English
@@ -12,9 +14,7 @@ export default function toEnglishDigits(text: string | number): string {
   });
 
   // Arabic to English
-  text = text.replace(/[٠-٩]/g, function (c) {
+  return text.replace(/[٠-٩]/g, function (c) {
     return String.fromCharCode(c.charCodeAt(0) - 1584);
   });
-
-  return text;
 }
