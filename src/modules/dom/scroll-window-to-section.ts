@@ -13,18 +13,10 @@ export default function scrollWindowToSection(
   offsetTop = offsetTop < 0 ? 0 : offsetTop;
 
   if (supportsNativeSmoothScroll) {
-    // cross browser smooth scroll
-    if (offsetTop === 0) {
-      window.document.body.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    } else {
-      window.scrollTo({
-        top: offsetTop,
-        behavior: 'smooth',
-      });
-    }
+    window.scrollTo({
+      top: offsetTop,
+      behavior: 'smooth',
+    });
   } else {
     window.scrollTo(0, offsetTop);
   }
