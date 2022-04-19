@@ -57,7 +57,7 @@
     "husky": "7.0.4",
     "jiti": "latest",
     "lint-staged": "12.3.8",
-    "mocha": "9.2.0",
+    "mocha": "9.2.2",
     "prettier": "2.6.2",
     "sinon": "13.0.2",
     "standard-version": "latest",
