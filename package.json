@@ -40,7 +40,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@nuxtjs/eslint-config-typescript": "9.0.0",
+    "@nuxtjs/eslint-config-typescript": "11.0.0",
     "@types/flat": "latest",
     "@types/mocha": "9.1.1",
     "@types/node": "latest",
